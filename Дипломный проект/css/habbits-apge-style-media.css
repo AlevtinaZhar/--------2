@@ -1,0 +1,28 @@
+/* Адаптивность */
+@media (max-width: 768px) {
+    .month-selector, .habit-form, .note-section, .goal-section {
+        width: 90%;
+        margin: 10px auto;
+    }
+    .calendar th, .calendar td {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+    }
+    .calendar th, .calendar td {
+        padding: 8px;
+        font-size: 12px;
+    }
+    button {
+        padding: 8px 10px;
+    }
+}
+

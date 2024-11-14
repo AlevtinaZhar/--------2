@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трекер привычек</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header >
+    <h1>Трекер привычек</h1>
+    <p>Создавайте полезные привычки, улучшайте свою жизнь</p>
+</header>
+
+<div class="container">
+
+    <section class="block">
+        <h2>Как это работает</h2>
+            <p>Добавьте привычку</p>
+            <p>Установите цель</p>
+            <p>Отслеживайте прогресс</p>
+    </section>
+
+    <section class="block">
+        <h2>Попробовать создать привычку</h2>
+        <p>Готовы начать? <a href="habbits-page.html" style="color: #e29578; text-decoration: none;">Нажмите здесь, чтобы создать привычку!</a></p>
+    </section>
+
+    <section class="block">
+        <h2>Преимущества и функции</h2>
+        <div class="features">
+            <div class="feature">
+                <h3>Отслеживание прогресса</h3>
+                <p>Легко следите за своими достижениями.</p>
+            </div>
+            <div class="feature">
+                <h3>Настройка целей</h3>
+                <p>Устанавливайте и достигайте личные цели.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>Полезные статьи</h2>
+        <div class="articles">
+            <div class="article">
+                <img src="img/article1.jpg" alt="Статья 1">
+                <h3>Как создать новую привычку</h3>
+                <p>Узнайте, как правильно формировать новые привычки и придерживаться их.</p>
+                <a href="article1.html">Читать далее</a>
+            </div>
+            <div class="article">
+                <img src="img/article2.jpg" alt="Статья 2">
+                <h3>Психология привычек</h3>
+                <p>Изучите, как работают привычки и как их изменить.</p>
+                <a href="article2.html">Читать далее</a>
+            </div>
+            <div class="article">
+                <img src="img/article3.jpg" alt="Статья 3">
+                <h3>Секреты успешных привычек</h3>
+                <p>Откройте для себя секреты формирования успешных привычек.</p>
+                <a href="article3.html">Читать далее</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>Что тебе понравится на сайте</h2>
+        <div class="what-you-like">
+            <div class="like-item">
+                <img src="img/task_list.jpg" alt="Списки задач на день">
+                <h3>Списки задач на день</h3>
+                <p>Организуйте свои задачи и достигайте целей.</p>
+            </div>
+            <div class="like-item">
+                <img src="img/analytics.jpg" alt="Аналитика и графики">
+                <h3>Аналитика и графики</h3>
+                <p>Следите за прогрессом с помощью наглядной аналитики.</p>
+            </div>
+            <div class="like-item">
+                <img src="img/motivation.jpg" alt="Мотивация и вдохновение">
+                <h3>Мотивация и вдохновение</h3>
+                <p>Найдите вдохновение для достижения своих целей.</p>
+            </div>
+            <div class="like-item">
+                <img src="img/reflection.jpg" alt="Рефлексия и прогресс">
+                <h3>Рефлексия и прогресс</h3>
+                <p>Анализируйте свои успехи и корректируйте план.</p>
+            </div>
+            <div class="like-item">
+                <img src="img/personal_plan.jpg" alt="Персональный план">
+                <h3>Персональный план</h3>
+                <p>Создайте свой уникальный план для достижения целей.</p>
+            </div>
+            <div class="like-item">
+                <img src="img/habit_tracker.jpg" alt="Трекер привычек">
+                <h3>Трекер привычек</h3>
+                <p>Отслеживайте свои привычки и прогресс.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>Отзывы пользователей</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"Этот сайт изменил мою жизнь!"</p>
+                <p>- Анна</p>
+            </div>
+            <div class="testimonial">
+                <p>"Я наконец-то достиг своих целей!"</p>
+                <p>- Сергей</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>Подписка на новости</h2>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <form style="display: flex; align-items: center;">
+                <input type="email" placeholder="Ваш email" required style="padding: 10px; width: 300px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;">
+                <button type="submit" style="padding: 10px 20px; background-color: #e29578; color: white; border: none; border-radius: 5px; cursor: pointer;">Подписаться</button>
+            </form>
+        </div>
+    </section>
+
+</div>
+
+<!-- Кнопка "Наверх" -->
+<button class="scroll-to-top" onclick="scrollToTop()">Наверх</button>
+
+<footer>
+    <div>
+        <a href="#">О нас</a>
+        <a href="#">Контакты</a>
+        <a href="#">Политика конфиденциальности</a>
+    </div>
+    <p>&copy; 2023 Трекер привычек. Все права защищены.</p>
+</footer>
+
+<script>
+    // Показать/скрыть кнопку "Наверх"
+    window.onscroll = function() {
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollToTopButton.style.display = "block";
+        } else {
+            scrollToTopButton.style.display = "none";
+        }
+
+        // Проверка, когда блоки должны появиться
+        const blocks = document.querySelectorAll('.block');
+        blocks.forEach(block => {
+            const rect = block.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                block.classList.add('visible');
+            }
+        });
+    };
+
+    // Функция для прокрутки вверх
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+@import url(habbits-apge-style-media.css);
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+header {
+    background-image: url(../img/img.jpg);
+    background-color: #006d77; 
+    background-position: center; /* Центрировать изображение */
+    background-repeat: no-repeat; /* Не повторять изображение */
+    margin: 0; /* Убираем отступы */
+    padding: 20px;
+    text-align: center;
+}
+header h1 {
+    font-size: 35px;
+    font-weight: 600;
+    color: #fdfdfe;
+    text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+      0px 0px 20px #b393d3;
+  }
+.habit-form, .month-selector, .note-section, .goal-section {
+    margin: 20px auto;
+    text-align: center;
+    max-width: 600px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.calendar {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px auto; /* Центрирование и отступ */
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 90%; /* Уменьшение ширины календаря */
+}
+.calendar th, .calendar td {
+    border: 1px solid #ddd;
+    padding: 10px; /* Уменьшенные отступы */
+    text-align: center;
+    transition: background-color 0.3s;
+}
+.calendar th {
+    background-color: #83c5be;
+    font-weight: bold;
+}
+.calendar td:hover {
+    background-color: #e0f7fa;
+}
+.completed {
+    background-color: #c8e6c9;
+    position: relative;
+}
+.completed::after {
+    content: '✔';
+    color: #006d77;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+}
+.habit-cell {
+    position: relative;
+    border-radius: 8px;
+}
+.edit-delete-buttons {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 10;
+}
+.habit-cell:hover .edit-delete-buttons {
+    display: block;
+    width: 100%;
+}
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.no-habits {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+}
+.note-list {
+    margin-top: 20px;
+    text-align: left;
+}
+.note-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+button {
+    background-color: #006d77;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #004d5a;
+}
+input[type="text"], input[type="number"], textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Остается на месте */
+    z-index: 1; /* Сверху других элементов */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Включает прокрутку, если необходимо */
+    background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон */
+    padding-top: 60px; /* Отступ сверху */
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 5% auto; /* Центрирование */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ширина модального окна */
+    max-width: 500px; /* Максимальная ширина */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Тень */
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .note-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .note-item button {
+    margin-left: 10px; /* Отступ между кнопками */
+    background-color: #006d77;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .note-item button:hover {
+    background-color: #004d5a; /* Цвет при наведении */
+  }
+  footer {
+    background-color: #006d77; /* Цвет подвала */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+footer a {
+    color: white; /* Цвет ссылок в футере */
+    margin: 0 15px; /* Отступы между ссылками */
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}

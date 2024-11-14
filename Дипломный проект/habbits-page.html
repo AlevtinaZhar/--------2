@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Трекер привычек</title>
+    <link rel="stylesheet" href="css/habbits-page-style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Трекер привычек</h1>
+    </header>
+
+    <!-- Всплывающее окно для новых пользователей -->
+    <div id="welcomeModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Как использовать Трекер привычек</h2>
+        <p>Трекер привычек работает по трем принципам:</p>
+        <ol>
+          <li>
+            Привычки следует формировать на всю жизнь, пока они не станут такими
+            же, как чистка зубов.
+          </li>
+          <li>
+            Цели должны быть гибкими. Вам не нужно пытаться поддерживать серии.
+            Просто поставьте реалистичную и достижимую цель и попытайтесь ее
+            достичь.
+          </li>
+          <li>
+            Делайте заметки по мере продвижения вашего пути. Цель — самоанализ
+            ваших успехов/неудач в попытках стать лучше.
+          </li>
+        </ol>
+        <h3>Начать:</h3>
+        <ol>
+          <li>Установите свои привычки, нажав + Новая привычка.</li>
+          <li>Поставьте цели для каждой привычки.</li>
+          <li>
+            Нажмите на любой пустой блок в календаре, чтобы отметить привычку
+            как выполненную. Нажмите еще раз, чтобы переключиться.
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Выбор месяца и года -->
+    <div class="month-selector">
+      <button id="prevMonth">◀</button>
+      <span id="currentMonth">Ноябрь 2024</span>
+      <button id="nextMonth">▶</button>
+    </div>
+
+    <!-- Календарь -->
+    <div id="calendar" class="calendar"></div>
+
+    <div id="noHabitsMessage" class="no-habits">
+      Создайте свою первую привычку, нажав на + Новая привычка
+    </div>
+
+    <!-- Кнопка для добавления новой привычки -->
+    <div class="habit-form">
+      <button id="addHabitButton">+ Новая привычка</button>
+    </div>
+
+    <!-- Блок выполнения целей -->
+    <div class="goal-section">
+      <h2>Выполнение целей</h2>
+      <div id="goalList"></div>
+    </div>
+    <!-- Всплывающее окно для создания новой привычки -->
+    <div id="newHabitModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeNewHabitModal">&times;</span>
+        <h2>Создайте новую привычку</h2>
+        <label for="habitInput">Название привычки:</label>
+        <input
+          type="text"
+          id="habitInput"
+          placeholder="Введите привычку"
+          required
+        />
+        <label for="goalInput">Цель (количество раз в месяц):</label>
+        <input
+          type="number"
+          id="goalInput"
+          placeholder="Введите количество"
+          required
+        />
+        <button id="saveHabitButton">Сохранить</button>
+      </div>
+    </div>
+
+    <!-- Всплывающее окно для редактирования привычки -->
+    <div id="editHabitModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeEditHabitModal">&times;</span>
+        <h2>Редактировать привычку</h2>
+        <label for="editHabitInput">Название привычки:</label>
+        <input type="text" id="editHabitInput" required />
+        <label for="editGoalInput">Цель (количество раз в месяц):</label>
+        <input type="number" id="editGoalInput" required />
+        <button id="updateHabitButton">Обновить</button>
+      </div>
+    </div>
+
+    <!-- Всплывающее окно для подтверждения удаления привычки -->
+    <div id="deleteHabitModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeDeleteHabitModal">&times;</span>
+        <h2>Удалить привычку</h2>
+        <p>Вы уверены, что хотите удалить привычку?</p>
+        <button id="confirmDeleteButton">Да</button>
+        <button id="cancelDeleteButton">Нет</button>
+      </div>
+    </div>
+
+    <!-- Блок заметок -->
+    <div class="note-section">
+      <h2>Оставить заметку</h2>
+      <button id="addNoteButton">+ Новая заметка</button>
+      <div id="noteList" class="note-list"></div>
+    </div>
+
+    <!-- Всплывающее окно для создания новой заметки -->
+    <div id="newNoteModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeNewNoteModal">&times;</span>
+        <h2>Создать новую заметку</h2>
+        <textarea
+          id="noteInput"
+          rows="4"
+          placeholder="Введите вашу заметку"
+          required
+        ></textarea>
+        <button id="saveNoteButton">Сохранить</button>
+      </div>
+    </div>
+
+    <!-- Всплывающее окно для редактирования заметки -->
+    <div id="editNoteModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeEditNoteModal">&times;</span>
+        <h2>Редактировать заметку</h2>
+        <textarea id="editNoteInput" rows="4" required></textarea>
+        <button id="updateNoteButton">Обновить</button>
+      </div>
+    </div>
+
+    <!-- Всплывающее окно для подтверждения удаления заметки -->
+    <div id="deleteNoteModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeDeleteNoteModal">&times;</span>
+        <h2>Удалить заметку</h2>
+        <p>Вы уверены, что хотите удалить заметку?</p>
+        <button id="confirmDeleteNoteButton">Да</button>
+        <button id="cancelDeleteNoteButton">Нет</button>
+      </div>
+    </div>
+    <footer>
+      <div>
+          <a href="#">О нас</a>
+          <a href="#">Контакты</a>
+          <a href="#">Политика конфиденциальности</a>
+      </div>
+      <p>&copy; 2023 Трекер привычек. Все права защищены.</p>
+  </footer>
+    <script src="js/welcomeModal.js"></script>
+    <script src="js/habits.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/note.js"></script>
+  </body>
+</html>
